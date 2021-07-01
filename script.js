@@ -33,7 +33,5 @@
 // Localstorage get / set
 
 // API INFO ----------------------------------------------------------------------------
-
 // 5 Day / 3 Hour Forecast
-// Solar Radiation API
 // Current weather data
