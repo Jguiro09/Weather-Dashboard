@@ -21,6 +21,16 @@
 // THEN I am again presented with current and future conditions for that city
 // Fetch when clicked. LI contains info
 // Capped at 5
+// Saves even when refreshed
+
+// Function PREDICTIONS------------------------------------------------------------------
+// Eventlistener function for taking in search
+// Create API Link
+// Fetch City Data Function
+// Add city to history
+// Output for top information for current day ()
+// Output for the 5 day forcast (Bootstrap card)
+// Localstorage get / set
 
 // API INFO ----------------------------------------------------------------------------
 

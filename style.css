@@ -1,0 +1,21 @@
+header
+{
+    /* Background Color */
+    background: rgb(51,30,61);
+    background: linear-gradient(90deg, rgba(51,30,61,1) 0%, rgba(21,0,255,1) 100%);
+
+    /* Header Adjustments */
+    height: 5vh;
+    display: flex;
+
+    /* Content Adjustments */
+    justify-content: center;
+    align-items: center;
+}
+
+header h1
+{
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+}
