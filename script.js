@@ -35,3 +35,46 @@
 // API INFO ----------------------------------------------------------------------------
 // 5 Day / 3 Hour Forecast
 // Current weather data
+
+//- -------------------------------------------
+console.log("connected!");
+//HTML Recalls
+var submitBtn = $('#submitBtn');
+var dayTemp = $('#dayTemp');
+var dayWind = $('#dayWind');
+var dayUV = $('#dayUV');
+var dayHumidity = $('#dayHumidity');
+
+submitBtn.click(function ()
+{
+    var userInput = $('#userInfo').val();
+    console.log(userInput);
+    getAPI();
+})
+
+function getAPI()
+{
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=houston&units=imperial&appid=8a393f02d01e324fee60ee71877cc93c')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data)
+        {
+            console.log(data)
+            dayTemp.text("Temp: " + data.main.temp + "°F");
+            dayWind.text("Wind: " + data.wind.speed + " MPH");
+            dayHumidity.text("Humidity: " + data.main.humidity + "%");
+
+            fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + data.coord.lat + '&lon=' + data.coord.lon + '&exclude=hourly,daily,alerts&appid=8a393f02d01e324fee60ee71877cc93c')
+                .then(function (response)
+                {
+                    return response.json();
+                })
+                .then(function (data2)
+                    {
+                        console.log(data2);
+                        dayUV.text("UV Index:" + data2.current.uvi)
+                    }
+                )
+        })
+}
