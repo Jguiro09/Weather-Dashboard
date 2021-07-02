@@ -26,10 +26,27 @@ aside h2
     font-weight: bold;
 }
 
+input[type="text"]
+{
+    padding: 2vh 1vw;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+
+button
+{
+    margin: 2vh 0vw;
+    width: 100%;
+}
 
 #sidebar
 {
     margin-top: 2vh;
+}
+
+#sidebar ul
+{
+    justify-content: center;
 }
 
 #currentDayWeather
@@ -47,6 +64,15 @@ aside h2
     margin: 0vh 1vw;
 }
 
+#fiveDayWeather h2
+{
+    font-size: 2rem;
+    align-self: flex-end;
+    float: left;
+    padding-left: 0;
+    font-weight: bold;
+}
+
 .myCard
 {
     max-width: 14rem; 
@@ -59,10 +85,20 @@ aside h2
     font-size: 1.7rem;
     font-weight: bold;
     letter-spacing: 0.05rem;
+    padding: 0;
+    padding-top: 1vh;
 }
 
 .myCardText
 {
     font-size: 125%;
+    font-weight: 600;
+    padding: 1.5vh 0vw;
+}
+
+.myCardBody
+{
+    padding: 0;
+    padding: 2vh 0 .5vw 0;
 }
 
