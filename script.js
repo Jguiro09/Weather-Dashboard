@@ -44,6 +44,7 @@ var dayTemp = $('#dayTemp');
 var dayWind = $('#dayWind');
 var dayUV = $('#dayUV');
 var dayHumidity = $('#dayHumidity');
+var dayCity = $('#dailyCity');
 
 submitBtn.click(function ()
 {
@@ -61,6 +62,7 @@ function getAPI()
         .then(function (data)
         {
             console.log(data)
+            dayCity.text(data.name);
             dayTemp.text("Temp: " + data.main.temp + "°F");
             dayWind.text("Wind: " + data.wind.speed + " MPH");
             dayHumidity.text("Humidity: " + data.main.humidity + "%");
