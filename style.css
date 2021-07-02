@@ -1,3 +1,9 @@
+body
+{
+    overflow: hidden;
+    margin: 0;
+}
+
 header
 {
     /* Background Color */
@@ -37,6 +43,7 @@ button
 {
     margin: 2vh 0vw;
     width: 100%;
+    border-radius: 10px;
 }
 
 #sidebar
@@ -44,9 +51,25 @@ button
     margin-top: 2vh;
 }
 
-#sidebar ul
+#recentSearch
 {
-    justify-content: center;
+    margin: 0;
+}
+
+#recentSearch ul
+{
+    border-top: 3px solid black;
+    padding: 0;
+}
+
+#recentSearch ul li
+{
+    text-align: center;
+    background-color: gray;
+    margin: 2vh 0vw;
+    padding: 1vh 0vw;
+    border-radius: 10px;
+    font-size: 150%;
 }
 
 #currentDayWeather
@@ -55,11 +78,12 @@ button
     margin-top: 2vh;
     margin-right: 1vw;
     margin-left: 1vw;
+    max-height: 60%;
 }
 
 #fiveDayWeather
 {
-    align-items: center;
+    align-content: flex-start;
     justify-content: space-between;
     margin: 0vh 1vw;
 }
