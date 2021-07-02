@@ -19,3 +19,16 @@ header h1
     font-weight: bold;
     font-size: 2rem;
 }
+
+.myCardHeader
+{
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+}
+
+.myCard
+{
+    font-size: 125%;
+}
+
