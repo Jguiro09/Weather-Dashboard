@@ -1,4 +1,4 @@
-console.log("connected!");
+console.log("connected!"); // A little check to make sure our java is actually connected to our HTML.
 //HTML Recalls
 var submitBtn = $('#submitBtn'); // Calls to the submit button on HTML
 var dayTemp = $('#dayTemp'); // Calls to the current day's temp on HTML
@@ -28,7 +28,7 @@ function getAPI() // Calls our API to obtain the weather information that we nee
 {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + userInput + '&units=imperial&appid=8a393f02d01e324fee60ee71877cc93c') // Calls our first API for the information we need 
         .then(function (response) { // After getting into the API this function will now happen (promise)
-            return response.json(); // Returns the information as a JSON
+            return response.json(); // Returns the information as JSON
         })
         .then(function (data) // We take that data and use it inside this function to start outputting our information
         {
@@ -84,36 +84,36 @@ else
 
 function display() // Displays our search history in a list format under our search bar
 {
-    saveCity = check();
+    saveCity = check(); // assigns our saveCity array to either our localstorage array or just returns our saveCity array
 
 
 
-    $.each(saveCity, function (i)
+    $.each(saveCity, function (i) // runs an for each loop that displays each one of our cities as a button so that the user can click on it if needed
     {
-    var button = $('<button class = "btn btn-dark">/>');
-    button.text(saveCity[i]);
-    var list = $('<li/>');
-    list.append(button);
-    recentSearch.append(list);
+    var button = $('<button class = "btn btn-dark">/>'); // creates a button for our list 
+    button.text(saveCity[i]); // Adds one one of our cities inside the button
+    var list = $('<li/>'); // Creates a "list" element
+    list.append(button); // Appends our button to the list
+    recentSearch.append(list); // Appends our "list" item to our rescent search UL
     })
 }
 
-function updateDiv()
+function updateDiv() // Refreshes our divs for a next search or if they click a previous city inside our buttons
 { 
-    recentSearch.html('');
-    $('.myCardPhoto').html('');
-    dayIcon.html('');
+    recentSearch.html(''); // Clears our previous citiy search buttons
+    $('.myCardPhoto').html(''); // Clears out the icons for all weather icons inside the 5 day forcast
+    dayIcon.html(''); // Clears out the icon for the current day weather inside the current day forcast
 }
 
-recentSearch.click(function (event)
+recentSearch.click(function (event) // An EventListener listening for if the user clicks on one of his previous cities
 {
-    var tar = $(event.target);
-    userInput = tar.text();
-    updateDiv();
-    getAPI();
-    save();
-    check();
-    display();
+    var tar = $(event.target); // Finds what button they have clicked
+    userInput = tar.text(); // Grabs the text from that button and assigns it to our userInput variable
+    updateDiv(); // Calls our function "updateDive", clears out our divs for our new search
+    getAPI(); // Calls our function "getAPI", displays our weather information with the use of our APIS
+    save(); // Calls our function "save", Saves/Updates our recent search
+    check(); // Calls our function "check", checks if we have anything previous inside of our local storage, if not we return our array
+    display(); // Calls our function "display", displays our previous serach inside buttons
 })
 
-display();
+display();  // Calls our function "display", displays our previous serach inside buttons
