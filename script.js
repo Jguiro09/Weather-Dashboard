@@ -43,7 +43,16 @@ function getAPI() // Calls our API to obtain the weather information that we nee
                 .then(function (data2) // We take that data and use it inside this function to start outputting our information.
                     {
                         console.log(data2); // Console log the data so you can see everything the API provides
-                        dayUV.text("UV Index: " + data2.current.uvi); // Outputs the current days UV Index
+                        dayUV.text(data2.current.uvi); // Outputs the current days UV Index
+
+                        if (data2.current.uvi > 6) {
+                            dayUV.css('background', '#aa2020')
+                        } else if (data2.current.uvi > 4) {
+                            dayUV.css('background', '#aa6a20')
+                        } else {
+                            dayUV.css('background', '#40aa20')
+                        }
+
                         dayIcon.prepend('<img src = "http://openweathermap.org/img/wn/' + data2.current.weather[0].icon + '@2x.png" />'); // Outputs the current days weather Icon
                         dayTemp.text("Temp: " + data2.current.temp + "°F"); // Outputs the current days temperature
                         dayWind.text("Wind: " + data2.current.wind_speed + " MPH"); // Outputs the current days wind speed
@@ -54,7 +63,7 @@ function getAPI() // Calls our API to obtain the weather information that we nee
                     $('.myCardPhoto').each(function (i) {$(this).prepend('<img src = "http://openweathermap.org/img/wn/' + data2.daily[i].weather[0].icon + '@2x.png" />');}); // Runs a for EACH loop that displays each days weather icon  (after the first curly bracket you can start a new line to make it easier to read)
                     $('.myCardWind').each (function (i) {$(this).text("Wind: " + data2.daily[i].wind_speed + "MPH");}); // runs a for EACH loop that displays each days wind speed (after the first curly bracket you can start a new line to make it easier to read)
                     $('.myCardHumidity').each(function (i) {$(this).text("Humidity: " + data2.daily[i].humidity + '%');}); // runs a for EACH loop that displays each days humidity  (after the first curly bracket you can start a new line to make it easier to read)
-                    $('.myCardDate').each(function (i) {$(this).text(moment().add(1 + i, 'days').format("MM/DD/YYYY"));}); // runs a for EACH loop that displays each days date  (after the first curly bracket you can start a new line to make it easier to read)
+                    $('.myCardDate').each(function (i) {$(this).text(moment().add(i, 'days').format("MM/DD/YYYY"));}); // runs a for EACH loop that displays each days date  (after the first curly bracket you can start a new line to make it easier to read)
                 })
         })
 }
@@ -100,7 +109,7 @@ function display() // Displays our search history in a list format under our sea
 
 function updateDiv() // Refreshes our divs for a next search or if they click a previous city inside our buttons
 { 
-    recentSearch.html(''); // Clears our previous citiy search buttons
+    recentSearch.html(''); // Clears our previous city search buttons
     $('.myCardPhoto').html(''); // Clears out the icons for all weather icons inside the 5 day forcast
     dayIcon.html(''); // Clears out the icon for the current day weather inside the current day forcast
 }
@@ -111,8 +120,6 @@ recentSearch.click(function (event) // An EventListener listening for if the use
     userInput = tar.text(); // Grabs the text from that button and assigns it to our userInput variable
     updateDiv(); // Calls our function "updateDive", clears out our divs for our new search
     getAPI(); // Calls our function "getAPI", displays our weather information with the use of our APIS
-    save(); // Calls our function "save", Saves/Updates our recent search
-    check(); // Calls our function "check", checks if we have anything previous inside of our local storage, if not we return our array
     display(); // Calls our function "display", displays our previous serach inside buttons
 })
 
