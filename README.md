@@ -12,7 +12,6 @@ Utilizing the open weather API, you are able to look up a city and find its weat
 
 ## Table of Contents
 
-[Installation](#Installation)  
 [Usage](#Usage)  
 [License](#License)  
 [Contributing](#Contribution-Guidelines)  
